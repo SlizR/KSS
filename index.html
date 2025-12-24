@@ -167,61 +167,55 @@
             position: relative;
         }
 
-        #markdown-render {
-            max-width: 800px;
-            margin: 0 auto;
-        }
+#markdown-render, #menu-md-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
 
-        #markdown-render h1 { font-size: 2.5rem; margin-bottom: 1.5rem; font-weight: 800; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem; }
-        #markdown-render h2 { font-size: 1.8rem; margin: 2.5rem 0 1rem; font-weight: 700; }
-        #markdown-render h3 { font-size: 1.4rem; margin: 2rem 0 1rem; font-weight: 600; }
-        #markdown-render p { margin-bottom: 1.25rem; font-size: 1.1rem; color: var(--text-color); opacity: 0.9; }
-        
-        #markdown-render pre {
-            background: var(--code-bg);
-            padding: 20px;
-            border-radius: 12px;
-            overflow-x: auto;
-            margin: 1.5rem 0;
-            border: 1px solid var(--border-color);
-        }
-        
-        #markdown-render code {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.9rem;
-            background: var(--code-bg);
-            padding: 2px 6px;
-            border-radius: 4px;
-            color: var(--accent-color);
-        }
+#markdown-render h1, #menu-md-content h1 { font-size: 2.5rem; margin-bottom: 1.5rem; font-weight: 800; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem; }
+#markdown-render h2, #menu-md-content h2 { font-size: 1.8rem; margin: 2.5rem 0 1rem; font-weight: 700; }
+#markdown-render h3, #menu-md-content h3 { font-size: 1.4rem; margin: 2rem 0 1rem; font-weight: 600; }
+#markdown-render p, #menu-md-content p { margin-bottom: 1.25rem; font-size: 1.1rem; color: var(--text-color); opacity: 0.9; }
 
-        #markdown-render pre code {
-            background: transparent;
-            padding: 0;
-            color: var(--text-color);
-        }
+#markdown-render pre, #menu-md-content pre {
+    background: var(--code-bg);
+    padding: 20px;
+    border-radius: 12px;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+    border: 1px solid var(--border-color);
+}
 
-        #markdown-render blockquote {
-            border-left: 4px solid var(--accent-color);
-            padding: 10px 24px;
-            margin: 1.5rem 0;
-            background: var(--sidebar-bg);
-            font-style: italic;
-            color: var(--text-muted);
-        }
+#markdown-render code, #menu-md-content code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9rem;
+    background: var(--code-bg);
+    padding: 2px 6px;
+    border-radius: 4px;
+    color: var(--accent-color);
+}
 
-        #markdown-render hr {
-            height: 1px;
-            background: var(--border-color);
-            border: none;
-            margin: 3rem 0;
-        }
+#markdown-render pre code, #menu-md-content pre code {
+    background: transparent;
+    padding: 0;
+    color: var(--text-color);
+}
 
-        #markdown-render ul, #markdown-render ol {
-            margin: 1.25rem 0 1.25rem 1.5rem;
-        }
+#markdown-render blockquote, #menu-md-content blockquote {
+    border-left: 4px solid var(--accent-color);
+    padding: 10px 24px;
+    margin: 1.5rem 0;
+    background: var(--sidebar-bg);
+    font-style: italic;
+    color: var(--text-muted);
+}
 
-        #markdown-render li { margin-bottom: 0.5rem; }
+#markdown-render ul, #menu-md-content ul, 
+#markdown-render ol, #menu-md-content ol {
+    margin: 1.25rem 0 1.25rem 1.5rem;
+}
+
+#markdown-render li, #menu-md-content li { margin-bottom: 0.5rem; }
 
         #markdown-render img {
             max-width: 100%;
