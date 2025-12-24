@@ -1,0 +1,17 @@
+https://www.kernelstepbystep.pp.ua/bootloader/EFI/Boot/bootx64.efi
+https://www.kernelstepbystep.pp.ua/bootloader/EFI/Boot/ldlinux.e64
+https://www.kernelstepbystep.pp.ua/bootloader/EFI/Boot/libcom32.c32
+https://www.kernelstepbystep.pp.ua/bootloader/EFI/Boot/libutil.c32
+https://www.kernelstepbystep.pp.ua/bootloader/EFI/Boot/menu.c32
+https://www.kernelstepbystep.pp.ua/bootloader/EFI/Boot/syslinux.cfg
+https://www.kernelstepbystep.pp.ua/bootloader/EFI/Boot/syslinux.efi
+https://www.kernelstepbystep.pp.ua/bootloader/EFI/Boot/vesamenu.c32
+https://www.kernelstepbystep.pp.ua/bootloader/extlinux.x32
+https://www.kernelstepbystep.pp.ua/bootloader/extlinux.x64
+https://www.kernelstepbystep.pp.ua/bootloader/isolinux.bin
+https://www.kernelstepbystep.pp.ua/bootloader/ldlinux.c32
+https://www.kernelstepbystep.pp.ua/bootloader/libcom32.c32
+https://www.kernelstepbystep.pp.ua/bootloader/libutil.c32
+https://www.kernelstepbystep.pp.ua/bootloader/mbr.bin
+https://www.kernelstepbystep.pp.ua/bootloader/pxelinux.0
+https://www.kernelstepbystep.pp.ua/bootloader/syslinux.cfg
