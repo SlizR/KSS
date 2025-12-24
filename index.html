@@ -132,17 +132,19 @@
             z-index: 1000;
         }
 
-        .main-layout { display: flex; max-width: 1440px; margin: 0 auto; position: relative; }
+        .main-layout { display: block; position: relative; }
 
         nav#sidebar {
             width: 300px;
             padding: 32px 16px;
             height: calc(100vh - 64px);
-            position: sticky;
+            position: fixed;
+            left: 0;
             top: 64px;
             overflow-y: auto;
             background: var(--sidebar-bg);
             border-right: 1px solid var(--border-color);
+            z-index: 100;
         }
 
         .nav-item {
@@ -159,7 +161,7 @@
         .nav-item.active { background: var(--accent-color); color: white; }
 
         main#content-area {
-            flex: 1;
+            margin-left: 300px;
             padding: 48px 64px;
             min-width: 0;
             position: relative;
@@ -264,11 +266,13 @@
             height: fit-content;
             cursor: pointer;
             margin-top: 20px;
+            perspective: 1000px;
         }
 
         .icon {
             background-color: #fff;
             padding: 10px 10px 5px 10px;
+            pointer-events: none;
         }
 
         .icon svg {
@@ -277,10 +281,11 @@
         }
 
         .cube {
-            transition: all 0.4s;
+            transition: all 0.4s ease-in-out;
             transform-style: preserve-3d;
             width: 200px;
             height: 44px;
+            pointer-events: none;
         }
 
         .button-icon:hover {
@@ -302,6 +307,7 @@
             text-transform: uppercase;
             letter-spacing: 0.5px;
             font-weight: bold;
+            backface-visibility: hidden;
         }
 
         .top {
@@ -565,11 +571,11 @@
 
         @media (max-width: 1024px) {
             nav#sidebar { width: 240px; }
-            main#content-area { padding: 40px; }
+            main#content-area { margin-left: 240px; padding: 40px; }
         }
 
         @media (max-width: 768px) {
-            .main-layout { flex-direction: column; }
+            .main-layout { display: flex; flex-direction: column; }
             nav#sidebar { 
                 width: 100%; 
                 height: auto; 
@@ -578,7 +584,7 @@
                 border-right: none; 
                 border-bottom: 1px solid var(--border-color); 
             }
-            main#content-area { padding: 32px 20px; }
+            main#content-area { margin-left: 0; padding: 32px 20px; }
             .logo-text { font-size: 2.5rem; }
             .home-top-bar { top: 10px; right: 10px; gap: 10px; }
         }
@@ -613,7 +619,7 @@
             <img src="https://kernelstepbystep.pp.ua/icon.png" alt="KSS" class="logo-img">
             <h1 class="logo-text">Kernel Step by Step</h1>
         </div>
-        <p class="hero-desc">Building Your Own Kernel & Operating System Step by Step.</p>
+        <p class="hero-desc">Documentation for Building Your Own Kernel Step by Step by Zero.</p>
         
         <button class="start-btn" onclick="startJourney()">Open Documentation</button>
         
@@ -625,7 +631,7 @@
                     </svg>
                 </div>
                 <div class="cube">
-                    <span class="side front">Learn more about CSS</span>
+                    <span class="side front">Learn more about KSS</span>
                     <span class="side top">On Github</span>
                 </div>
             </div>
