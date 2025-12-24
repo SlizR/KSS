@@ -6,7 +6,7 @@
     <title>Kernel Step by Step</title>
     <link rel="icon" href="favicon.ico">
     <meta name="description" content="Build your own kernel and operating system from first principles.">
-    <meta name="keywords" content="AI, education, training, schoolchildren, students, FHome, Sliz, artificial intelligence">
+    <meta name="keywords" content="build, own, kernel, os, operation, system, operating system, documentation, wiki, linux, windows, info, first, principles, github, 2025, year">
     <meta name="author" content="Sliz®">
     <meta name="robots" content="index, follow">
     <link rel="icon" type="image/ico" href="https://kernelstepbystep.pp.ua/favicon.ico">
@@ -20,6 +20,7 @@
     <meta name="twitter:title" content="Kernel Step by Step">
     <meta name="twitter:description" content="Build your own kernel and operating system from first principles.">
     <meta name="twitter:image" content="https://kernelstepbystep.pp.ua/icon.png">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -233,7 +234,6 @@
             transform: translateX(26px); background-color: var(--moon-bg); 
         }
 
-        /* G */
         .button-icon {
             display: flex;
             border: 3px var(--text-color) solid;
@@ -365,10 +365,12 @@
         window.addEventListener('DOMContentLoaded', async () => {
             const menuArea = document.getElementById('menu-md-content');
             try {
-                const response = await fetch('menu.md');
+                const response = await fetch('menu.md?t=' + new Date().getTime());
                 if (response.ok) {
                     const text = await response.text();
-                    menuArea.innerHTML = marked.parse(text);
+                    if (typeof marked !== 'undefined') {
+                        menuArea.innerHTML = marked.parse(text);
+                    }
                 }
             } catch (e) {
                 console.log("E0: menu.md");
@@ -404,10 +406,15 @@
 
             const renderArea = document.getElementById('markdown-render');
             try {
-                const response = await fetch(`${step}.md`);
+                const response = await fetch(`${step}.md?t=` + new Date().getTime());
                 if (!response.ok) throw new Error();
                 const text = await response.text();
-                renderArea.innerHTML = marked.parse(text);
+                
+                if (typeof marked !== 'undefined') {
+                    renderArea.innerHTML = marked.parse(text);
+                } else {
+                    renderArea.innerText = text;
+                }
             } catch (e) {
                 renderArea.innerHTML = `<div class="error-box"><h2>Step ${step}</h2><p>Content file ${step}.md not found Or Error loading file ${step}.md</p></div>`;
             }
