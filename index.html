@@ -210,6 +210,14 @@
     color: var(--text-muted);
 }
 
+#markdown-render hr, #menu-md-content hr {
+    border: none;
+    height: 1px;
+    background: var(--border-color);
+    margin: 2.5rem 0;
+    opacity: 0.6;
+}
+
 #markdown-render ul, #menu-md-content ul, 
 #markdown-render ol, #menu-md-content ol {
     margin: 1.25rem 0 1.25rem 1.5rem;
@@ -623,7 +631,7 @@
 
     <section id="home-screen">
         <div class="home-top-bar">
-            <a href="https://github.com/SlizR/KSS/blob/main/CONTRIBUTING.md" class="contributing-btn">Contributing</a>
+            <a ef="https://github.com/SlizR/KSS/blob/main/CONTRIBUTING.md" class="contributing-btn">Contributing</a>
             <label class="theme-switch">
                 <input type="checkbox" class="theme-switch__checkbox" id="theme-toggle-home">
                 <div class="theme-switch__container">
@@ -664,7 +672,7 @@
             </div>
         </div>
 
-        <div id="menu-md-content" style="margin-top: 40px; width: 100%; text-align: left;"></div>
+        <div id="menu-md-content" style="margin-top: 40px; padding: 0 20px;"></div>
     </section>
 
     <div id="app-container">
@@ -674,7 +682,7 @@
                 <span>KSS</span>
             </div>
             <div style="display: flex; align-items: center;">
-                <a href="https://github.com/SlizR/KSS/blob/main/CONTRIBUTING.md" class="contributing-btn">Contributing</a>
+                <a ef="https://github.com/SlizR/KSS/blob/main/CONTRIBUTING.md" class="contributing-btn">Contributing</a>
                 <button class="btn-menu" onclick="goHome()">
                     <span class="icon-m">
                         <svg viewBox="0 0 175 80" width="40" height="40">
