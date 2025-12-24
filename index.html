@@ -261,53 +261,56 @@
         
 /* G + */
 
-#home-screen {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  min-height: 100vh;
+:root {
+  --gh-accent: #87ceeb;
+  --gh-border: #1a1a1a;
+  --gh-icon-bg: #1a1a1a;
+  --gh-icon-fill: #ffffff;
+  --gh-front-bg: #f1f5f9;
+  --gh-front-text: #1a1a1a;
 }
 
-.logo-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 15px;
-  margin-bottom: 20px;
+[data-theme="dark"] {
+  --gh-accent: #00bfff;
+  --gh-border: #ffffff;
+  --gh-icon-bg: #ffffff;
+  --gh-icon-fill: #222229;
+  --gh-front-bg: #222229;
+  --gh-front-text: #ffffff;
 }
 
 .button-icon {
   display: flex;
-  border: 3px #1a1a1a solid;
+  border: 3px var(--gh-border) solid;
   width: fit-content;
   height: fit-content;
   cursor: pointer;
-  transition: border-color 0.4s;
+  margin: 40px auto 0 auto;
 }
 
 .icon {
-  background-color: #1a1a1a;
+  background-color: var(--gh-icon-bg);
   padding: 10px 10px 5px 10px;
-  display: flex;
-  align-items: center;
+}
+
+.icon svg {
+  width: 25px;
+  height: 25px;
 }
 
 .icon svg path {
-  fill: #ffffff;
+  fill: var(--gh-icon-fill);
 }
 
 .cube {
   transition: all 0.4s;
   transform-style: preserve-3d;
   width: 200px;
-  height: 47px;
-  position: relative;
+  height: 20px;
 }
 
 .button-icon:hover {
-  border-color: #87ceeb;
+  border-color: var(--gh-accent);
 }
 
 .button-icon:hover .cube {
@@ -316,84 +319,30 @@
 
 .side {
   position: absolute;
-  height: 100%;
-  width: 100%;
+  height: 47px;
+  width: 200px;
   display: flex;
   font-size: 0.8em;
   justify-content: center;
   align-items: center;
   text-transform: uppercase;
+  letter-spacing: 0.5px;
   font-weight: bold;
 }
 
-.front {
-  background: #f1f5f9;
-  color: #1a1a1a;
-  transform: translateZ(23.5px);
-}
-
 .top {
-  background: #87ceeb;
+  background: var(--gh-accent);
   color: #fff;
-  transform: rotateX(-90deg) translateZ(23.5px);
+  transform: rotateX(-90deg) translate3d(0, 13.5px, 1em);
 }
 
-[data-theme="dark"] .button-icon {
-  border-color: #ffffff;
+.front {
+  background: var(--gh-front-bg);
+  color: var(--gh-front-text);
+  transform: translate3d(0, 0, 1em);
 }
-
-[data-theme="dark"] .icon {
-  background-color: #ffffff;
-}
-
-[data-theme="dark"] .icon svg path {
-  fill: #222229;
-}
-
-[data-theme="dark"] .front {
-  background: #222229;
-  color: #ffffff;
-}
-
-[data-theme="dark"] .button-icon:hover {
-  border-color: #00bfff;
-}
-
-[data-theme="dark"] .top {
-  background: #00bfff;
-}
-
+        
 /* G - */
-
-        .side {
-            position: absolute;
-            height: 44px;
-            width: 200px;
-            display: flex;
-            font-size: 0.8em;
-            justify-content: center;
-            align-items: center;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            font-weight: bold;
-            backface-visibility: hidden;
-        }
-
-        .top {
-            background: #5C86FF;
-            color: #fff;
-            transform: rotateX(-90deg) translate3d(0, 22px, 22px);
-        }
-
-        .front {
-            background: #222229;
-            color: #fff;
-            transform: translate3d(0, 0, 22px);
-        }
-
-        [data-theme="light"] .icon { background-color: #222229; }
-        [data-theme="light"] .icon svg path { fill: #fff; }
-        [data-theme="light"] .front { background: #fff; color: #222229; border: 1px solid #222229; }
 
         .theme-switch {
             --toggle-size: 12px;
@@ -657,13 +606,30 @@
             .logo-text { font-size: 2.5rem; }
             .home-top-bar { top: 10px; right: 10px; gap: 10px; }
         }
+        
+  .header-logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    font-weight: 800;
+    font-size: 1.3rem;
+    letter-spacing: -1px;
+}
+
+.header-mini-icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 4px;
+    object-fit: cover;
+}
     </style>
 </head>
 <body>
 
     <section id="home-screen">
         <div class="home-top-bar">
-            <a href="#" class="contributing-btn">Contributing</a>
+            <a href="https://github.com/SlizR/KSS/blob/main/CONTRIBUTING.md" class="contributing-btn">Contributing</a>
             <label class="theme-switch">
                 <input type="checkbox" class="theme-switch__checkbox" id="theme-toggle-home">
                 <div class="theme-switch__container">
@@ -688,7 +654,7 @@
             <img src="https://kernelstepbystep.pp.ua/icon.png" alt="KSS" class="logo-img">
             <h1 class="logo-text">Kernel Step by Step</h1>
         </div>
-        <p class="hero-desc">Documentation for Building Your Own Kernel Step by Step by Zero.</p>
+        <p class="hero-desc">A Step-by-Step Guide to Building Your Own Kernel by Zero.</p>
         
         <button class="start-btn" onclick="startJourney()">Open Documentation</button>
         
@@ -709,9 +675,12 @@
 
     <div id="app-container">
         <header>
-            <div onclick="goHome()" style="cursor:pointer; font-weight:800; font-size:1.3rem; letter-spacing:-1px;">KSS</div>
+            <div onclick="window.open('https://kernelstepbystep.pp.ua/')" class="header-logo">
+                <img src="https://kernelstepbystep.pp.ua/icon.png" alt="logo" class="header-mini-icon">
+                <span>KSS</span>
+            </div>
             <div style="display: flex; align-items: center;">
-                <a href="#" class="contributing-btn">Contributing</a>
+                <a href="https://github.com/SlizR/KSS/blob/main/CONTRIBUTING.md" class="contributing-btn">Contributing</a>
                 <button class="btn-menu" onclick="goHome()">
                     <span class="icon-m">
                         <svg viewBox="0 0 175 80" width="40" height="40">
@@ -813,33 +782,35 @@
         }
 
         async function loadStep(step) {
-            currentStep = step;
-            localStorage.setItem('lastStep', step);
-            
-            const loader = document.getElementById('step-loader');
-            loader.style.display = 'flex';
+    currentStep = step;
+    localStorage.setItem('lastStep', step);
+    
+    const loader = document.getElementById('step-loader');
+    loader.style.display = 'flex';
 
-            updateSidebar();
-            updatePagination();
+    updateSidebar();
+    updatePagination();
 
-            const renderArea = document.getElementById('markdown-render');
-            try {
-                await new Promise(r => setTimeout(r, 500));
-                const response = await fetch(`${step}.md?t=` + Date.now());
-                if (!response.ok) throw new Error();
-                const text = await response.text();
-                renderArea.innerHTML = marked.parse(text);
-            } catch (e) {
-                renderArea.innerHTML = `
-                    <div style="padding: 40px; text-align: center; border: 2px dashed var(--border-color); border-radius: 12px;">
-                        <h2 style="margin-bottom: 10px;">Step ${step}</h2>
-                        <p style="color: var(--text-muted)">Markdown file <b>${step}.md</b> not found or error loading. Try Refresh page.</p>
-                    </div>`;
-            }
+    const renderArea = document.getElementById('markdown-render');
+    try {
+        const randomDelay = Math.floor(Math.random() * (2000 - 10 + 1) + 100);
+        await new Promise(r => setTimeout(r, randomDelay));
 
-            loader.style.display = 'none';
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
+        const response = await fetch(`${step}.md?t=` + Date.now());
+        if (!response.ok) throw new Error();
+        const text = await response.text();
+        renderArea.innerHTML = marked.parse(text);
+    } catch (e) {
+        renderArea.innerHTML = `
+            <div style="padding: 40px; text-align: center; border: 2px dashed var(--border-color); border-radius: 12px;">
+                <h2 style="margin-bottom: 10px;">Step ${step}</h2>
+                <p style="color: var(--text-muted)">Markdown file <b>${step}.md</b> not found or error loading. Try Refresh page.</p>
+            </div>`;
+    }
+
+    loader.style.display = 'none';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
 
         function updateSidebar() {
             const sidebar = document.getElementById('sidebar');
@@ -891,13 +862,33 @@
             `;
         }
 
-        function syncTheme(isDark) {
-            const theme = isDark ? 'dark' : 'light';
-            document.documentElement.setAttribute('data-theme', theme);
-            document.getElementById('theme-toggle-home').checked = isDark;
-            document.getElementById('theme-toggle-app').checked = isDark;
-        }
+function applySavedTheme() {
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    const isDark = savedTheme === 'dark';
+    
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    
+    const homeToggle = document.getElementById('theme-toggle-home');
+    const appToggle = document.getElementById('theme-toggle-app');
+    
+    if (homeToggle) homeToggle.checked = isDark;
+    if (appToggle) appToggle.checked = isDark;
+}
 
+function syncTheme(isDark) {
+    const theme = isDark ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', theme);
+    
+    localStorage.setItem('theme', theme);
+    
+    const homeToggle = document.getElementById('theme-toggle-home');
+    const appToggle = document.getElementById('theme-toggle-app');
+    
+    if (homeToggle) homeToggle.checked = isDark;
+    if (appToggle) appToggle.checked = isDark;
+}
+
+        applySavedTheme();
         document.getElementById('theme-toggle-home').addEventListener('change', (e) => syncTheme(e.target.checked));
         document.getElementById('theme-toggle-app').addEventListener('change', (e) => syncTheme(e.target.checked));
     </script>
