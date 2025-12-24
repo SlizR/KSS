@@ -36,4 +36,4 @@ Once you complete the KSS roadmap, you will find a transition to **SSS (System S
 * Developing system **programs and utilities**.  
 * Implementing unique OS features and user interfaces.
 
-**Note:** SSS is not a separate entity; it is a specialized branch of the KSS ecosystem created by **Sliz®**. You can continue your journey here: [SSS](https://kernelstepbystep.pp.ua/os/)
+**Note:** SSS is not a separate entity; it is a specialized branch of the KSS ecosystem created by **Sliz®**. You can continue your journey here: [SSS](https://www.kernelstepbystep.pp.ua/os/)
