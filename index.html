@@ -783,37 +783,48 @@
             document.getElementById('app-container').style.display = 'none';
         }
 
-        async function loadStep(step) {
+async function loadStep(step) {
     currentStep = step;
     localStorage.setItem('lastStep', step);
     
     const loader = document.getElementById('step-loader');
+    const renderArea = document.getElementById('markdown-render');
+
     loader.style.display = 'flex';
+    renderArea.innerHTML = ''; 
 
     updateSidebar();
     updatePagination();
 
-    const renderArea = document.getElementById('markdown-render');
+    await new Promise(resolve => requestAnimationFrame(resolve));
+
     try {
-        const randomDelay = Math.floor(Math.random() * (2000 - 10 + 1) + 100);
-        await new Promise(r => setTimeout(r, randomDelay));
+        const randomDelay = Math.floor(Math.random() * (1500 - 500 + 1) + 500);
+        const delayPromise = new Promise(r => setTimeout(r, randomDelay));
 
         const response = await fetch(`${step}.md?t=` + Date.now());
-        if (!response.ok) throw new Error();
-        const text = await response.text();
+        
+        const [fetchResponse] = await Promise.all([response, delayPromise]);
+
+        if (!fetchResponse.ok) {
+            throw new Error('File not found');
+        }
+
+        const text = await fetchResponse.text();
         renderArea.innerHTML = marked.parse(text);
+
     } catch (e) {
+        console.error("Load error:", e);
         renderArea.innerHTML = `
             <div style="padding: 40px; text-align: center; border: 2px dashed var(--border-color); border-radius: 12px;">
                 <h2 style="margin-bottom: 10px;">Step ${step}</h2>
-                <p style="color: var(--text-muted)">Markdown file <b>${step}.md</b> not found or error loading. Try Refresh page.</p>
+                <p style="color: var(--text-muted)">Error loading Markdown file <b>${step}.md</b>. The file may not be available. Try refreshing the page.</p>
             </div>`;
+    } finally {
+        loader.style.display = 'none';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     }
-
-    loader.style.display = 'none';
-    window.scrollTo({ top: 0, behavior: 'smooth' });
 }
-
         function updateSidebar() {
             const sidebar = document.getElementById('sidebar');
             sidebar.innerHTML = '';
